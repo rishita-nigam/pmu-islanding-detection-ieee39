@@ -44,3 +44,48 @@ fault and islanding scenarios. Per-bus PMU measurements are exported as CSV:
 ---
 
 ## Project Structure
+pmu-islanding-ieee39/
+│
+├── pmu_analyzer.py          # Main analysis script
+├── NE39bus2_PQ.slx          # MATLAB/Simulink simulation model
+├── pmu_fault_dataset.csv    # PMU dataset (bus-level measurements)
+│
+├── requirements.txt
+└── README.md
+---
+
+## Output
+
+After running, the `output/` folder contains:
+
+| File | Description |
+|------|-------------|
+| `pmu_analysis_plots.png` | Voltage/frequency signal plots with event markers |
+| `pmu_pre_during_post_comparison_bars.png` | Bus-by-bus pre/during/post comparison |
+| `pmu_anomaly_clusters.png` | Anomaly scores with island vs main-grid clusters |
+| `pmu_analysis_summary.json` | Full structured JSON report |
+
+---
+
+## Getting Started
+
+```bash
+git clone https://github.com/yourusername/pmu-islanding-ieee39.git
+cd pmu-islanding-ieee39
+pip install -r requirements.txt
+python pmu_analyzer.py
+```
+
+The script reads `pmu_fault_dataset.csv` from the same directory.
+To override settings, create a `config.json` (all defaults are in the script).
+
+---
+
+## Requirements
+
+- Python 3.10+
+- MATLAB R2021a+ (for dataset regeneration only)
+
+---
+
+## Developed at VIT as part of a Power Systems & ML research project.
